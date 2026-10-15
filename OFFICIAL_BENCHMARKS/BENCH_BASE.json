@@ -1,0 +1,469 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "SHELLY_HOMEKIT",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\CONSUMER_APPLIANCES\\SHELLY_HOMEKIT\\UPSTREAM_CLONE",
+    "git": {
+      "head": "8dbd9447497e642620d32dd08e3a2c1d8e729ed6",
+      "url": "https://github.com/mongoose-os-apps/shelly-homekit",
+      "branch": "master",
+      "committed_at": "2026-08-21T22:00:03+02:00"
+    }
+  },
+  "metrics": {
+    "files_total": 162,
+    "source_files_scanned": 139,
+    "lines_of_code": 19913,
+    "languages": {
+      ".cpp": 77,
+      ".hpp": 52,
+      "(none)": 7,
+      ".yml": 4,
+      ".md": 3,
+      ".js": 3,
+      ".go": 3,
+      ".py": 2,
+      ".yaml": 2,
+      ".build": 1,
+      ".gz": 1,
+      ".html": 1,
+      ".svg": 1,
+      ".css": 1,
+      ".c": 1
+    }
+  },
+  "licence": {
+    "spdx": "UNKNOWN",
+    "class": "C",
+    "source_file": "LICENSE",
+    "redistribution_allowed": false
+  },
+  "dependencies": {
+    "count": 1,
+    "unique": 1,
+    "by_ecosystem": {
+      "go": 1
+    },
+    "list": [
+      {
+        "ecosystem": "go",
+        "name": "gopkg.in/yaml.v3",
+        "version": "v3.0.1",
+        "source_file": "tools/shelly_update_server/go.mod",
+        "raw": ""
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 148,
+    "files_with_findings": 137,
+    "severity": {
+      "high": 2,
+      "medium": 0,
+      "low": 146
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A03-Injection": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "fs_src/script.js",
+            "line": 1385,
+            "cwe": "CWE-95",
+            "snippet": "realm: /realm=\"([^\"]+)\"/.exec(hdr)[1],"
+          },
+          {
+            "severity": "high",
+            "file": "tools/flash-shelly.py",
+            "line": 889,
+            "cwe": "CWE-502",
+            "snippet": "data = yaml.load(fp, Loader=yaml.FullLoader)"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 9,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "src/shelly_common.hpp",
+            "line": 96,
+            "cwe": "CWE-",
+            "snippet": "// TODO(rojer): Move upstream."
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_debug.cpp",
+            "line": 238,
+            "cwe": "CWE-",
+            "snippet": "// This is very hacky, I apologize :)"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_adaptive_lighting.cpp",
+            "line": 107,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: could be moved to homekit-adk"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_main.cpp",
+            "line": 81,
+            "cwe": "CWE-",
+            "snippet": "// TODO: make dynamic"
+          },
+          {
+            "severity": "low",
+            "file": "src/DS18XXX/shelly_temp_sensor_ow.cpp",
+            "line": 71,
+            "cwe": "CWE-",
+            "snippet": "if (TempSensorDS18XXX::SupportsFamily(family)) {"
+          },
+          {
+            "severity": "low",
+            "file": "src/DS18XXX/shelly_temp_sensor_ow.hpp",
+            "line": 53,
+            "cwe": "CWE-",
+            "snippet": "class TempSensorDS18XXX : public TempSensor {"
+          },
+          {
+            "severity": "low",
+            "file": "src/mock/pwm/mgos_pwm.c",
+            "line": 18,
+            "cwe": "CWE-",
+            "snippet": "// TODO: move over to https://github.com/mongoose-os-libs/pwm"
+          },
+          {
+            "severity": "low",
+            "file": "src/wifi_config/shelly_wifi_config_impl.cpp",
+            "line": 221,
+            "cwe": "CWE-",
+            "snippet": "// TODO(rojer): Proper ip/netmask comparison."
+          },
+          {
+            "severity": "low",
+            "file": "tools/flash-shelly.py",
+            "line": 236,
+            "cwe": "CWE-",
+            "snippet": "else:  # add fallback to legacy detection, # TODO remove when 2.9.x when more mainstream."
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 0,
+        "findings": []
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 137,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "fs_src/qrcode.js",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "var QRCode;!function(){function t(t){this.mode=r.MODE_8BIT_BYTE,this.data=t,this.parsedData=[];for(var e=0,o=this.data.length;e<o;e++){var n=[],i=this.data.charCodeAt(e);i>65536?(n"
+          },
+          {
+            "severity": "low",
+            "file": "fs_src/script.js",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "libreset/include/shelly_reset.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "libreset/src/shelly_reset.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_cct_controller.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_cct_controller.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_common.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_component.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_component.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_debug.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_debug.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_adaptive_lighting.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_adaptive_lighting.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_carbon_dioxide_sensor.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_carbon_dioxide_sensor.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_carbon_monoxide_sensor.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_carbon_monoxide_sensor.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_contact_sensor.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_contact_sensor.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_doorbell.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_doorbell.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_garage_door_opener.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_garage_door_opener.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_humidity_sensor.cpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "src/shelly_hap_humidity_sensor.hpp",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "*     http://www.apache.org/licenses/LICENSE-2.0"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 1,
+    "files_with_findings": 1,
+    "severity": {
+      "high": 0,
+      "medium": 1,
+      "low": 0
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "tools/shelly_update_server/update_handler.go",
+            "line": 99,
+            "cwe": "CWE-200",
+            "snippet": "fmt.Fprintf(w, \"Please follow instructions <a href='https://github.com/mongoose-os-apps/shelly-homekit/'>here</a>.\\n\")"
+          }
+        ]
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:9f484a86-8e20-5820-b504-733a36d47abc",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-05T15:13:05Z",
+      "component": {
+        "type": "application",
+        "name": "SHELLY_HOMEKIT",
+        "version": "8dbd9447497e",
+        "bom-ref": "pkg:generic/anticloud/SHELLY_HOMEKIT@8dbd9447497e",
+        "purl": "pkg:generic/anticloud/SHELLY_HOMEKIT@8dbd9447497e",
+        "licenses": [
+          {
+            "license": {
+              "id": "UNKNOWN"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "8dbd9447497e642620d32dd08e3a2c1d8e729ed6"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/mongoose-os-apps/shelly-homekit"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "gopkg.in/yaml.v3",
+        "version": "v3.0.1",
+        "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+        "bom-ref": "go/gopkg.in/yaml.v3@v3.0.1"
+      }
+    ]
+  },
+  "elapsed_seconds": 138.47
+}
